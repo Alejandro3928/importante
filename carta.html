@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> &hearts; Carta para mi muñeca &hearts; </title>
+    <style>
+        body{
+            font-family: "Georgia", serif;
+            background: linear-gradient(to bottom right, #ec70a2, #df6767);
+            color: #444;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .carta {
+            max-width: 800px;
+            margin: 50px auto;
+            background: #fffafc;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            line-height: 1.8;
+            z-index: 10; 
+        }
+
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .heart {
+            position: fixed;
+            bottom: -20px;
+            color: red;
+            font-size: 20px;
+            animation: subir 5s linear infinite;
+            opacity: 0.7;
+            z-index: 1;
+        }
+
+        @keyframes subir {
+            0% {
+            transform: translateY(0) scale(1);
+            opacity: 0.8;
+        }
+            50% {
+            opacity: 1;
+        }
+            100% {
+            transform: translateY(-120vh) scale(1.5);
+            opacity: 0;
+        }
+        }
+        p {
+         margin-bottom: 20px;
+         font-size: 1.2rem;
+        }   
+    </style>
+</head>
+<body>
+  <div class="hearts-container" id="hearts"></div>
+
+    <header class="carta" style="background-color:lightpink;">
+        <h1 style="text-align: center;"> ❤️<em>Felices 2 años mi vida</em>❤️ </h1>
+    </header>
+
+    <article class="carta" style="text-align: center;">
+        <p> <small>Una pequeña cancion que se me viene a la mente cuando pienso en ti mi vida: </small> </p>
+        <audio controls loop >
+         <source src="cancion.mp3" type="audio/mpeg">
+        </audio>
+    </article>
+
+    <article class="carta">
+        <p><div>Mi muñeca hermosa, hoy por fin cumplimos a los 2 años juntos y no sabes lo feliz y agradecido que estoy de que la vida y Dios me haya puesto a tu lado. Han sido los dos mejores años de mi vida, llenos de momentos hermosos, risas, abrazos, besos, peleitas pero que al final siempre se convertira en más amor. Desde el primer día que te vi supe que eras especial, desde ese momento que me hablaste, desde que me pediste estar en tu equipo, desde ese momento me encantaste de una manera que nunca nadie lo había hecho y jamas lo hara solo nuestros chiquillos.</div>
+
+        <div>Jamás imaginé llegar a estar tanto tiempo con alguien, nunca pensé que podría durar tanto en una relación, pero contigo todo ha sido diferente, contigo descubrí que el amor verdadero sí existe, que sí se puede soñar y cumplir lo que uno desea, que sí se puede imaginar un futuro y saber que no solo es un sueño, sino un plan que vamos a hacer realidad. Y todo eso por que tú eres mi compañera de vida, mi novia, mi futura esposa y la futura madre de nuestros retoñitos bonitos.</div>
+
+        <div>Han pasado dos años y sigo tan enamorado de ti como el primer día hasta incluso más y cada dia creeme que es más y más. Porque cada mes que pasa, cada día que estamos juntos, me doy cuenta de que te amo más de lo que me imaginaba. Me encanta absolutamente todo de ti: tu sonrisa preciosa que alegra mis días, tus ojitos hermosos que parecen dos estrellitas, tus cachetitos de manzanita que tanto amo, tu forma de ser, incluso cuando te enojas un poquito porque hasta eso me encanta de ti. No quiero que cambies nada de ti, por que para mí eres perfecta tal y como eres y siempre lo serás.</div>
+
+        <div>Gracias por ser tan linda conmigo, por apoyarme siempre, por escucharme, por darme tu amor y por hacer de mi vida mucho mejor. Gracias también a tu familia que siempre ha sido buena conmigo, pero sobre todo gracias a ti, por quedarte conmigo en momentos buenos y en malos, por siempre luchar por lo que sentimos y por demostrarme cada día lo mucho que me amas.</div>
+
+        <div>Mi vida yo se que dos años suenan a mucho, pero para mí es apenas el comienzo de toda una vida juntos. Ya me imagino nuestro futuro juntos, en nuestra casita bonita y grande, con una alberca, con nuestros perritos, gatitos y con nuestros retoñitos corriendo por todos lados y nosotros jugando con los chiquillos. También me imagino a cuando ya estemos viejitos como pasitas, aún tomados de la mano, aún riéndonos juntos y amándonos como siempre lo hemos hecho. Todo eso lo deseo con todo mi corazón y sé que lo vamos a cumplir.</div>
+
+        <div>Quiero que sepas que no importa cuánto tiempo pase, siempre te voy a amar muchísimo, más de lo que puedo explicar con palabras, más de lo que puedes imaginarte. Cada segundo, cada minuto, cada hora, cada día de mi vida, pienso en ti y en lo mucho que te amo. Eres mi todo, eres mi princesa, mi chiquita hermosa, mi muñequita preciosa, mi terroncito de azúcar, mi chiquilla linda, mi futura esposa y la madre de nuestros retoñitos bonitos.</div>
+
+        Hoy cumplimos 2 años juntos, pero yo quiero cumplir toda la vida contigo. Gracias por ser mi amor, gracias por existir y gracias por elegirme cada día. Te amo con todo mi corazoncito, y siempre pase lo que pase, voy a estar contigo hasta el último de mis días cuando ya estemos como unas pasitas bien arrugaditas.</p>
+
+    </article>
+   <script>
+    function crearCorazon() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.fontSize = Math.random() * 20 + 15 + "px";
+      heart.style.animationDuration = (Math.random() * 3 + 4) + "s"; 
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 3000);
+    }
+
+    setInterval(crearCorazon, 500);
+  </script>
+</body>
+</html>
