@@ -103,9 +103,9 @@
     function crearCorazon() {
       const heart = document.createElement("div");
       heart.classList.add("heart");
-      heart.innerHTML = "❤️";
+      heart.innerHTML = "💗";
       heart.style.left = Math.random() * window.innerWidth + "px";
-      heart.style.fontSize = Math.random() * 20 + 15 + "px";
+      heart.style.fontSize = Math.random() * 5 + 10 + "px";
       heart.style.animationDuration = (Math.random() * 3 + 4) + "s"; 
       document.body.appendChild(heart);
 
@@ -114,7 +114,7 @@
       }, 3000);
     }
 
-    setInterval(crearCorazon, 500);
+    setInterval(crearCorazon, 1500);
   </script>
 </body>
 </html>
