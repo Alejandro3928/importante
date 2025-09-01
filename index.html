@@ -59,7 +59,7 @@
         p {
          margin-bottom: 20px;
          font-size: 1.2rem;
-        }   
+        }
     </style>
 </head>
 <body>
@@ -92,6 +92,13 @@
         Hoy cumplimos 2 años juntos, pero yo quiero cumplir toda la vida contigo. Gracias por ser mi amor, gracias por existir y gracias por elegirme cada día. Te amo con todo mi corazoncito, y siempre pase lo que pase, voy a estar contigo hasta el último de mis días cuando ya estemos como unas pasitas bien arrugaditas.</p>
 
     </article>
+
+    <article class="carta" style="text-align:center;">
+        <div>
+            <a href="pag2.html"> Ir a una segunda pagina</a>
+        </div>
+    </article>
+
    <script>
     function crearCorazon() {
       const heart = document.createElement("div");
@@ -103,7 +110,7 @@
       document.body.appendChild(heart);
 
       setTimeout(() => {
-        heart.remove();
+        heart.leave();
       }, 3000);
     }
 
