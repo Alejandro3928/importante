@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉 Feliz cumple años mi vida 🎉</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+     body {
+        margin: 0;
+        height: 100vh; 
+      background-image: url("fondo.jpg");
+      background-size: auto 100%;
+      background-position: center top;
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+        }
+
+    .contenido {
+        text-align: center;
+        max-width: 80%;
+        margin: auto;  
+        background: rgba(255, 255, 255, 0.6); 
+        padding: 15px;
+        border-radius: 15px;
+        font-size: 1rem;
+    }
+    .boton-contenedor {
+        display: flex;
+        justify-content: center; 
+        margin-top: 20px;        
+    }
+    .btn {
+      padding: 10px 20px;
+      font-size: 18px;
+      background: #fd83c0;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .modal img {
+      max-width: 80%;
+      max-height: 80%;
+      margin: 10px;
+      border-radius: 15px;
+      box-shadow: 0px 0px 10px black;
+    }
+    .modal video {
+      max-width: 80%;
+      max-height: 80%;
+      margin: 10px;
+      border-radius: 15px;
+      box-shadow: 0px 0px 10px black;
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+    }
+
+    </style>
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="cancionyouth.mp3" type="audio/mpeg">
+    </audio>
+    <div class="contenido">
+        <h1> 🎉Feliz cumpleaños mi muñequita preciosa 🎉</h1>
+        <p>Mi muñequita hermosa te quiero deciar un feliz cumpleaños y que te la pases muy bien en todos tus cumpleaños, sabes que siempre estare en cada uno de ellos por que obviamente siempre vamos a estar juntos hasta que ya estemos bien viejitos como pasitas bien arrugadas, yo se que no te puedo dar mucho ahortia pero igual sabes que todo te lo doy con todo mi corazoncito y veras que algun dia ya tendremos muchas más cosas y ahi ya podre darte todo lo bonito que mereces y más, ya me imagino cuando tenamos a nuestros retoñitos y cada uno de ellos te lleve un regalito que escogamos para ti, veras que el tiempo pasara volando y que de un dia a otro ya estaremos en esos momentos tan bonitos y nos acordaremos de estos momentos donde no teniamos mucho pero aun asi nos amamos demasiado y siempre sera asi mi amorcito</p>
+        <p>Espero que te guste esta paginita la intento hacer mejor que la anterior y de algo que te gusta mas o alguien aun que me caiga medio mal por que solo yo te puedo gustar pero bueno igual te la hago por que es para ti y para el amor de mi vida lo que sea, Te amo demasiado mi futura esposa y madre de mis retoñitos bonitos 💗</p>
+    </div>
+    <p class="contenido">Las siguientes fotos espero que te gusten aun que a mi no me terminan de gustar solo son por ocasión especial</p>
+    <div class="boton-contenedor"><button class="btn" onclick="abrirGaleria()">Ver fotos</button></div>
+    <div class="modal" id="galeria">
+     <span class="close" onclick="cerrarGaleria()">&times;</span>
+     <img src="fondo.jpg" alt="Foto 1">
+     <video src="video1.mp4"></video>
+     <img src="imgbeso.JPG" alt="Foto 2">
+     <img src="imgbeso2.JPG" alt="Foto 3">
+  </div>
+  <script>
+    function abrirGaleria() {
+      document.getElementById("galeria").style.display = "flex";
+    }
+    function cerrarGaleria() {
+      document.getElementById("galeria").style.display = "none";
+    }
+  </script>
+</body>
+</html>
