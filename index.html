@@ -4,66 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> &hearts; Carta para mi muñeca &hearts; </title>
-    <style>
-        body{
-            font-family: "Georgia", serif;
-            background: linear-gradient(to bottom right, #ec70a2, #df6767);
-            color: #444;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .carta {
-            max-width: 800px;
-            margin: 50px auto;
-            background: #fffafc;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            line-height: 1.8;
-            z-index: 10; 
-        }
-
-        .hearts-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-        .heart {
-            position: fixed;
-            bottom: -20px;
-            color: red;
-            font-size: 20px;
-            animation: subir 5s linear infinite;
-            opacity: 0.7;
-            z-index: 1;
-        }
-
-        @keyframes subir {
-            0% {
-            transform: translateY(0) scale(1);
-            opacity: 0.8;
-        }
-            50% {
-            opacity: 1;
-        }
-            100% {
-            transform: translateY(-120vh) scale(1.5);
-            opacity: 0;
-        }
-        }
-        p {
-         margin-bottom: 20px;
-         font-size: 1.2rem;
-        }
-    </style>
+    <link rel="stylesheet" href="style_index.css">
 </head>
 <body>
-  <div class="hearts-container" id="hearts"></div>
+  <nav class="carta">
+    <a href="index.html">Inicio</a>
+    <a href="pag2.html">Segunda Página</a>
+    <a href="cumple/index.html">Página de Cumpleaños</a>
+    <a href="bienvenida/index.html">Bienvenida mi chiquilla</a>
+</nav>
 
     <header class="carta" style="background-color:lightpink;">
         <h1 style="text-align: center;"> ❤️<em>Felices 2 años mi vida</em>❤️ </h1>
@@ -93,16 +42,6 @@
 
         <div><p>Te amo mucho mi futura esposa y madre de mis retoñitos bonitos❤️ </p></div>
 
-    </article>
-
-    <article class="carta" style="text-align:center;">
-        <div>
-            <a href="pag2.html"> Ir a una segunda pagina</a>
-        </div>
-    </article>
-
-    <article class="carta" style="text-align: center;">
-        <a href="cumple/index.html"> Ir a la pagina de cumpleaños</a>
     </article>
 
    <script>

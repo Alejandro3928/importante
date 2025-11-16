@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bienvenida mi muñequita — Te extrañé ❤️</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<nav>
+    <a href="../index.html">Inicio</a>
+    <a href="../pag2.html">Segunda Página</a>
+    <a href="../cumple/index.html">Página de Cumpleaños</a>
+    <a href="index.html">Bienvenida mi chiquilla</a>
+</nav>
+  <header>
+    <h1>Bienvenida mi muñeca hermosa ❤️</h1>
+    <p class="lead">Mi reyna preciosa me hiciste falta cada segundo que estuviste fuera. Esta página la hice para demostrarte cuánto te extrañé y que ya te quiero ver para poder darte muchos besitos en tu carita hermosa</p>
+  </header>
+
+  <main class="hero" role="main">
+    <div class="hero-grid">
+      <div class="foto">
+        <img src="foto1.jpg" alt="imagen" id="heroImg">
+      </div>
+      <div class="hero-text">
+        <h2>Te extrañé muchísimo</h2>
+        <p>Desde que te fuiste todo se sintió vacío y sin color como si todo estuviera en blanco y negro, tu risa, tu forma de ser, tu voz tan linda, extrañe todo de ti mi vida. Que bueno que ya por fin regresaste ya te quiero abrazar y decirte lo mucho que te amo.</p>
+
+        <div class="audio-player">
+          <button id="playBtn">▶️ Reproducir musica</button>
+          <span></span>
+        </div>
+        <audio id="mensajeAudio" src="cancion_love.mp3" preload="none"></audio>
+      </div>
+    </div>
+
+    <section id="galeria" style="margin-top:18px">
+      <h3 style="margin:10px 0 8px 8px; text-align:center">Galería de fotos</h3>
+      <div class="galeria">
+        <div class="thumb"><img src="foto2.jpg" alt="Recuerdo 1" data-large="images/gal1.jpg"></div>
+        <div class="thumb"><img src="foto3.jpg" alt="Recuerdo 2" data-large="images/gal2.jpg"></div>
+        <div class="thumb"><img src="foto4.jpg" alt="Recuerdo 3" data-large="images/gal3.jpg"></div>
+      </div>
+    </section>
+
+    <section id="sorpresas" style="margin-top:18px">
+      <h3 style="margin:10px 0 8px 8px; text-align:center">Tarjetas</h3>
+      <div class="sorpresas">
+        <div class="card" data-index="0">
+          <div class="card-inner">
+            <div class="card-face front"><strong>Tarjeta 1</strong><div style="font-size:0.85rem;margin-top:6px">Haz clic para ver</div></div>
+            <div class="card-face back"><div><strong>Te amo mi vida</strong><div style="margin-top:8px">Cerca o lejos, solo tú tienes mi corazón, mis pensamientos y todo mi amor </div></div></div>
+          </div>
+        </div>
+
+        <div class="card" data-index="1">
+          <div class="card-inner">
+            <div class="card-face front"><strong>Tarjeta 2</strong><div style="font-size:0.85rem;margin-top:6px">Haz clic para ver</div></div>
+            <div class="card-face back"><div><strong> Me encantas mi muñequita</strong><div style="margin-top:8px">Mi mundo se pinta se colores cada que te veo 💗</div></div></div>
+          </div>
+        </div>
+
+        <div class="card" data-index="2">
+          <div class="card-inner">
+            <div class="card-face front"><strong>Última tarjetita</strong><div style="font-size:0.85rem;margin-top:6px">Haz clic para abrir</div></div>
+            <div class="card-face back"><div><strong>Te amo mi chiquilla</strong><div style="margin-top:8px"> Me haces la vida más bonita por existir, te amo a montones deseo que siempre estés muy feliz </div><div style="margin-top:12px"><button id="openModalBtn">Ver detalle</button></div></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mensaje" style="margin-top:18px; padding:8px">
+      <h3 style="margin:8px 0">Una carta para ti la más hermosa del mundo entero </h3>
+      <article style="background:var(--mild); padding:14px; border-radius:10px; font-size:1.05rem; line-height:1.5">
+        Mi chiquita preciosa ya regresaste por fin. Cada día sin ti me recordó cuanto te amo y lo afortunado que soy de tenerte en mi vida. Espero que esta pequeña página te des cuenta de cuanto pienso en ti. Te amo con todo mi corazón y no puedo esperar para abrazarte.
+      </article>
+    </section>
+
+  </main>
+
+  <footer>
+    <small style="color: white; opacity:0.9">Hecho con todo mi ❤️ para el amor de mi vida </small>
+  </footer>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <h3>Detalle</h3>
+      <p> Gracias por ser la mejor novia del mundo entero, estas tan hermosa mi muñeca preciosa</p>
+      <p>Te amo y te amare por toda la vida hasta que estemos viejitos como unas pasitas asi bien arrugaditos, mi muñequita hermosa estas tan bella y todo de ti me encanta tanto que ni te imaginas cuanto mi vida linda</p>
+      <div style="margin-top:12px; text-align:right"><button id="closeModal">Cerrar</button></div>
+    </div>
+  </div>
+
+<script>
+  const modal = document.getElementById('modal');
+  const closeModal = document.getElementById('closeModal');
+  const openModalBtn = document.getElementById('openModalBtn');
+  closeModal?.addEventListener('click', ()=> modal.classList.remove('open'));
+  openModalBtn?.addEventListener('click', ()=> modal.classList.add('open'));
+
+  const playBtn = document.getElementById('playBtn');
+  const audio = document.getElementById('mensajeAudio');
+  playBtn.addEventListener('click', ()=>{
+    if(audio.paused){ audio.play(); playBtn.textContent = '⏸️ Pausar canción'; }
+    else { audio.pause(); playBtn.textContent = '▶️ Reproducir música'; }
+  });
+
+  document.querySelectorAll('.galeria .thumb img').forEach(img=>{
+    img.addEventListener('click', ()=>{
+      const imgModal = document.createElement('div');
+      imgModal.style.position = 'fixed'; imgModal.style.inset = 0; imgModal.style.background = 'rgba(0,0,0,0.8)'; imgModal.style.display='flex'; imgModal.style.alignItems='center'; imgModal.style.justifyContent='center'; imgModal.style.zIndex=2200;
+      const big = document.createElement('img'); big.src = img.dataset.large || img.src; big.style.maxWidth='90%'; big.style.maxHeight='90%'; big.style.borderRadius='10px'; big.style.boxShadow='0 12px 40px rgba(0,0,0,0.3)';
+      imgModal.appendChild(big);
+      imgModal.addEventListener('click', ()=> document.body.removeChild(imgModal));
+      document.body.appendChild(imgModal);
+    });
+  });
+
+  document.querySelectorAll('.card').forEach(card=>{
+    card.addEventListener('click', ()=> card.classList.toggle('flipped'));
+  });
+
+  document.getElementById('heroImg').addEventListener('click', ()=>{
+    const input = document.createElement('input'); input.type='file'; input.accept='image/*';
+    input.onchange = e => {
+      const file = e.target.files[0]; if(!file) return;
+      const url = URL.createObjectURL(file); document.getElementById('heroImg').src = url;
+    };
+    input.click();
+  });
+
+  const script = document.createElement('script');
+  script.src = 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js';
+  script.onload = () => {
+    confetti({
+      particleCount: 150,
+      spread: 150,
+      origin: { y: 0.6 }
+    });
+  };
+  document.body.appendChild(script);
+</script>
+</body>
+</html>
