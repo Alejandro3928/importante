@@ -101,45 +101,91 @@
 
   const playBtn = document.getElementById('playBtn');
   const audio = document.getElementById('mensajeAudio');
-  playBtn.addEventListener('click', ()=>{
-    if(audio.paused){ audio.play(); playBtn.textContent = '⏸️ Pausar canción'; }
-    else { audio.pause(); playBtn.textContent = '▶️ Reproducir música'; }
-  });
+  if (playBtn && audio) {
+    playBtn.addEventListener('click', ()=>{
+      if (audio.paused) { audio.play(); playBtn.textContent = '⏸️ Pausar canción'; }
+      else { audio.pause(); playBtn.textContent = '▶️ Reproducir música'; }
+    });
+  }
 
   document.querySelectorAll('.galeria .thumb img').forEach(img=>{
     img.addEventListener('click', ()=>{
       const imgModal = document.createElement('div');
-      imgModal.style.position = 'fixed'; imgModal.style.inset = 0; imgModal.style.background = 'rgba(0,0,0,0.8)'; imgModal.style.display='flex'; imgModal.style.alignItems='center'; imgModal.style.justifyContent='center'; imgModal.style.zIndex=2200;
-      const big = document.createElement('img'); big.src = img.dataset.large || img.src; big.style.maxWidth='90%'; big.style.maxHeight='90%'; big.style.borderRadius='10px'; big.style.boxShadow='0 12px 40px rgba(0,0,0,0.3)';
+      imgModal.style.position = 'fixed';
+      imgModal.style.inset = 0;
+      imgModal.style.background = 'rgba(0,0,0,0.85)';
+      imgModal.style.display = 'flex';
+      imgModal.style.alignItems = 'center';
+      imgModal.style.justifyContent = 'center';
+      imgModal.style.zIndex = '2147483647';
+      imgModal.style.cursor = 'zoom-out';
+
+      const big = document.createElement('img');
+      big.src = img.dataset.large || img.src;
+      big.style.maxWidth = '92%';
+      big.style.maxHeight = '92%';
+      big.style.borderRadius = '10px';
+      big.style.boxShadow = '0 12px 40px rgba(0,0,0,0.6)';
+      big.style.opacity = '0';
+      big.style.transition = 'opacity 200ms ease';
+      big.style.cursor = 'auto';
+
+      big.addEventListener('click', ev => ev.stopPropagation());
+
+      big.addEventListener('load', ()=> big.style.opacity = '1');
+      big.addEventListener('error', ()=>{
+        big.alt = 'No se pudo cargar la imagen';
+        big.style.opacity = '1';
+      });
+
       imgModal.appendChild(big);
-      imgModal.addEventListener('click', ()=> document.body.removeChild(imgModal));
+      imgModal.addEventListener('click', ()=>{
+        if (document.body.contains(imgModal)) document.body.removeChild(imgModal);
+      });
       document.body.appendChild(imgModal);
     });
   });
 
+  // tarjetas
   document.querySelectorAll('.card').forEach(card=>{
     card.addEventListener('click', ()=> card.classList.toggle('flipped'));
   });
 
-  document.getElementById('heroImg').addEventListener('click', ()=>{
-    const input = document.createElement('input'); input.type='file'; input.accept='image/*';
-    input.onchange = e => {
-      const file = e.target.files[0]; if(!file) return;
-      const url = URL.createObjectURL(file); document.getElementById('heroImg').src = url;
-    };
-    input.click();
-  });
+  const heroImg = document.getElementById('heroImg');
+  if (heroImg) {
+    heroImg.addEventListener('click', ()=>{
+      const input = document.createElement('input'); input.type='file'; input.accept='image/*';
+      input.onchange = e => {
+        const file = e.target.files[0]; if(!file) return;
+        const url = URL.createObjectURL(file); heroImg.src = url;
+      };
+      input.click();
+    });
+  }
 
   const script = document.createElement('script');
   script.src = 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js';
   script.onload = () => {
-    confetti({
-      particleCount: 150,
-      spread: 150,
-      origin: { y: 0.6 }
-    });
+    if (typeof confetti === 'function') {
+      confetti({
+        particleCount: 150,
+        spread: 150,
+        origin: { y: 0.6 }
+      });
+    }
   };
   document.body.appendChild(script);
+
+  window.addEventListener('keydown', (e)=>{
+    if (e.key === 'Escape') {
+      const overlays = Array.from(document.querySelectorAll('body > div'));
+      overlays.forEach(d=>{
+        if (d && d.style && d.style.position === 'fixed' && d.style.zIndex && parseInt(d.style.zIndex,10) > 1000) {
+          if (document.body.contains(d)) document.body.removeChild(d);
+        }
+      });
+    }
+  });
 </script>
 </body>
 </html>
